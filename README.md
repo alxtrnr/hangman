@@ -3,7 +3,7 @@
 A terminal based app. The traditional hangman word guessing game with an api look up and some data plots. A coding exercise for practise and learning **Python**. Topics include use of modules, API requests, error handling, matplotlib, numpy. Add to that creating a github project where code review and contributions are invited. 
 
 Using [RapidAPI](https://rapidapi.com/marketplace) for word definitions. Free sign up at [RapidAPI](rapidapi.com) will get you an api key. 
-In the ```def twinword_request(args)``` function look for the line ```'x-rapidapi-key': 'env_file.env',``` and replace ```'env_file.env'``` with your rapidapi key.  
+In the ```def twinword_request(args)``` function look for the line ```'x-rapidapi-key': 'env_file.env',``` and replace ```'env_file.env'``` with your rapidapi key. The app *may* work without this and instead will just go to [Datamuse](https://www.datamuse.com/api/) for the definition.   
 
 1. An English word is generated. Parameters for random (word) may be set in the script.
 2. Player has 11 tries to guess the word
