@@ -6,7 +6,7 @@ When contributing to this repository, please first discuss the change you wish t
 
 * Read this guide! It provides tips on how to successfully contribute to the project.
 
-* Browse through a repository's open issues (especially ones labeled "good first issue") to see if there is an issue you might be able to solve.
+* Browse through open issues to see if there is an issue you might be able to solve.
 
 * If you're planning to contribute code that is unrelated to an existing issue, please open a new issue describing your proposal before starting work on it. This helps to inform feedback and will ultimately increase the likelihood that your pull request will be accepted.
 
@@ -71,7 +71,7 @@ Pull requests are the best way to propose changes to the codebase:
 
 9. ### Commit your changes
 
-    After you make a set of changes, use git add -A to stage your changes and git commit -m "DESCRIPTION OF CHANGES" to commit them.
+    After you make a set of changes, use ```git add -A``` to stage your changes and ```git commit -m "DESCRIPTION OF CHANGES"``` to commit them.
 
     If you are making multiple sets of changes, it's a good practice to make a commit after each set.
 
