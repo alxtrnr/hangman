@@ -12,4 +12,4 @@ The traditional hangman word guessing game with a bit extra. A coding exercise f
 
 Contributions are welcomed. See [CONTRIBUTING](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md) for how.
 
-Code / project review would be great! I am muddled about returning and passing values between functions
+Code / project review would be great! I am muddled about returning and passing values between functions. Any pointers on this or anything else would be wonderful. Thank you.  
