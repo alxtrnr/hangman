@@ -18,6 +18,7 @@ def intro():
     Sound advice for making effective initial guesses
     :return: None
     """
+    init(autoreset=True)  # Saves having to keep typing 'Fore.RESET' to have colorama return text colour to the default.
     print('''
     \nHerbert S. Zim, in his classic introductory cryptography text "Codes and Secret Writing", gives the English letter
 frequency sequence as "ETAON RISHD LFCMU GYPWB VKJXZQ", the most common letter pairs as "TH HE AN RE ER IN ON AT ND ST 
@@ -25,8 +26,9 @@ ES EN OF TE ED OR TI HI AS TO", and the most common doubled letters as "LL EE SS
 
 The "top twelve" letters constitute about 80% of the total usage. The "top eight" letters constitute about 65% of the 
 total usage.''')
-    question = input('\nTry a test word: y/N ')
-    if question == 'y':
+    question = input(Fore.RED + '\nDebugging? Try a test word y/N: ')
+
+    if question == 'y'.lower():
         test_word = input('Type a test word: ')
         hangman(list(test_word))
     else:
@@ -39,7 +41,6 @@ def hangman(test_word=None):
 
     :return:
     """
-    init(autoreset=True)  # Saves having to keep typing 'Fore.RESET' to have colorama return text colour to the default.
     rw = RandomWords()  # create an instance of a RandomWords object
     if not test_word:
         word = list(rw.get_random_word(hasDictionaryDef="true", minLength=5, maxLength=10, minDictionaryCount=10,
@@ -49,7 +50,7 @@ def hangman(test_word=None):
     word_copy = word.copy()  # compare answer with as the word list above will be changing
     answer = list('_' * len(word))  # answer template
     noose = 0  # incrementer for wrong guesses
-    print("\nLet's play Hangman!")
+    print(Fore.RESET + "\nLet's play Hangman!")
     print('-' * 19, '\n')
     player_go(word, word_copy, answer, noose)
 
