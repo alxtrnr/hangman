@@ -2,6 +2,47 @@
 
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method before making a change. The following guide may help if unfamiliar with the process. 
 
+**[Tips for contributing code](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#tips-for-contributing-code)**
+
+**[Pull Request Process](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#pull-request-process)**
+
+1. [Fork the project repository](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#fork-the-project-repository-by-clicking-the-fork-button-in-the-upper-right-corner)
+
+2. [Clone your fork.](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#clone-your-fork)
+
+3. [Navigate to your local repository](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#navigate-to-your-local-repository)
+
+4. [Check that your fork is the "origin" remote](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#check-that-your-fork-is-the-origin-remote)
+
+5. [Add the project repository as the "upstream" remote](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#add-the-project-repository-as-the-upstream-remote)
+
+6. [Pull the latest changes from upstream into your local repository](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#pull-the-latest-changes-from-upstream-into-your-local-repository)
+
+7. [Create a new branch](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#create-a-new-branch)
+
+8. [Make changes in your local repository](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#make-changes-in-your-local-repository)
+
+9. [Commit your changes](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#commit-your-changes)
+
+10. [Push your changes to your fork](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#push-your-changes-to-your-fork)
+
+11. [Begin the pull request](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#begin-the-pull-request)
+
+12. [Create the pull request](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#create-the-pull-request)
+
+13. [Review the pull request](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#review-the-pull-request)
+
+14. [Add more commits to your pull request](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#add-more-commits-to-your-pull-request)
+
+15. [Discuss the pull request](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#discuss-the-pull-request)
+
+16. [Delete your branch from your fork](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#delete-your-branch-from-your-fork)
+
+17. [Delete your branch from your local repository](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#delete-your-branch-from-your-local-repository)
+
+18. [Synchronize your fork with the project repository](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md#synchronize-your-fork-with-the-project-repository)
+
+
 ## Tips for contributing code
 
 * Read this guide! It provides tips on how to successfully contribute to the project.
