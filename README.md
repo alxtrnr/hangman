@@ -1,6 +1,6 @@
 # hangman
 
-The traditional hangman word guessing game with a bit extra. A coding exercise for practise and learning. 
+A terminal based app. The traditional hangman word guessing game with a bit extra. A coding exercise for practise and learning Python Topics include use of modules, API requests, error handling, matplotlib, numpy. Add to that creating a github project where code review and contributions are invited. 
 
 1. An English word is generated. Parameters for random (word) may be set in the script.
 2. Player has 11 tries to guess the word
@@ -12,4 +12,4 @@ The traditional hangman word guessing game with a bit extra. A coding exercise f
 
 Contributions are welcomed. See [CONTRIBUTING](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md) for how.
 
-Code / project review would be great! I am muddled about returning and passing values between functions. Any pointers on this or anything else would be wonderful. Thank you.  
+Code / project review would be great! Bit muddled about returning and passing values between functions. Any pointers on this or anything else would be wonderful. Thank you.  
