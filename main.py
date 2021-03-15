@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import requests
 import seaborn as sns
+import os
 import wikipedia
 from colorama import Fore
 from colorama import init
@@ -247,7 +248,7 @@ def twinword_request(*args):
     url = "https://twinword-word-graph-dictionary.p.rapidapi.com/definition/"
     querystring = {"entry": display}
     headers = {
-        'x-rapidapi-key': "01ae2be8d8msh2216d12e4f182d1p10e2cejsn1bcfc5c879cd",
+        'x-rapidapi-key': 'env_file.env',
         'x-rapidapi-host': "twinword-word-graph-dictionary.p.rapidapi.com"
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
