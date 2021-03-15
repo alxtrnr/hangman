@@ -12,4 +12,4 @@ A terminal based app. The traditional hangman word guessing game with an api loo
 
 Contributions are welcomed. See [CONTRIBUTING](https://github.com/alxtrnr/hangman/blob/master/CONTRIBUTING.md) for how.
 
-Code / project review would be great! Bit muddled about returning and passing values between functions. Any pointers on this or anything else would be wonderful. Thank you.  
+If you over from [PyBites](pybites.slack.com) thank you! Code / project review would be great! Bit muddled about returning and passing values between functions. Any pointers on this or anything else would be wonderful. Thank you.  
