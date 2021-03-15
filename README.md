@@ -1,6 +1,6 @@
 # hangman
 
-The traditional hangman word guessing game with a bit extra.
+The traditional hangman word guessing game with a bit extra. 
 
 1. An English word is generated. Parameters for random (word) may be set in the script.
 2. Player has 11 tries to guess the word
