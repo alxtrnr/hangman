@@ -7,7 +7,6 @@ import numpy as np
 import pandas as pd
 import requests
 import seaborn as sns
-import os
 import wikipedia
 from colorama import Fore
 from colorama import init
@@ -56,14 +55,15 @@ def hangman(test_word=None):
     player_go(word, word_copy, answer, noose)
 
 
-def player_go(*args):
+def player_go(word, word_copy, answer, noose):
     """
     instantiates each turn and processes guess whether it's in or not in word
 
-    :param args: word, word_copy, answer, noose
-    :return:
+    :param word:
+    :param word_copy:
+    :param answer:
+    :param noose:
     """
-    word, word_copy, answer, noose = args
     guessed_letters = []
     total_guesses = 11
     while answer != word_copy:
@@ -107,119 +107,47 @@ def player_go(*args):
     wikipedia_request(answer, guessed_letters, noose)
 
 
-def gallows(*args):
+def gallows(noose, word_copy, gl):
     """
     builds the gallows and switches to end game when word guessed / dead
 
-    :param args: noose, word_copy, gl
-    :return:
+    :param noose:
+    :param word_copy:
+    :param gl:
     """
-    noose, word_copy, gl = args
-    # the function builds the gallows incrementally for each wrong answer
-    if noose == 1:
-        print(Fore.LIGHTCYAN_EX + ' ========')
-    elif noose == 2:
-        print(Fore.LIGHTCYAN_EX + '     |/')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + ' =========')
-    elif noose == 3:
-        print(Fore.LIGHTCYAN_EX + '   =========')
-        print(Fore.LIGHTCYAN_EX + '     |/')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + ' =========')
-    elif noose == 4:
-        print(Fore.LIGHTCYAN_EX + '   =========')
-        print(Fore.LIGHTCYAN_EX + '     |/   |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + ' =========')
-    elif noose == 5:
-        print(Fore.LIGHTCYAN_EX + '   =========')
-        print(Fore.LIGHTCYAN_EX + '     |/   |')
-        print(Fore.LIGHTCYAN_EX + '     |    O')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + ' =========')
-    elif noose == 6:
-        print(Fore.LIGHTCYAN_EX + '   =========')
-        print(Fore.LIGHTCYAN_EX + '     |/   |')
-        print(Fore.LIGHTCYAN_EX + '     |    O')
-        print(Fore.LIGHTCYAN_EX + '     |    |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + ' =========')
-    elif noose == 7:
-        print(Fore.LIGHTCYAN_EX + '   =========')
-        print(Fore.LIGHTCYAN_EX + '     |/   |')
-        print(Fore.LIGHTCYAN_EX + '     |    O')
-        print(Fore.LIGHTCYAN_EX + '     |   \|')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + '     |')
-        print(Fore.LIGHTCYAN_EX + ' =========')
-    elif noose == 8:
-        print(Fore.LIGHTCYAN_EX + '    =========')
-        print(Fore.LIGHTCYAN_EX + '      |/   |')
-        print(Fore.LIGHTCYAN_EX + '      |    O')
-        print(Fore.LIGHTCYAN_EX + '      |   \|/')
-        print(Fore.LIGHTCYAN_EX + '      |')
-        print(Fore.LIGHTCYAN_EX + '      |')
-        print(Fore.LIGHTCYAN_EX + '      |')
-        print(Fore.LIGHTCYAN_EX + '  =========')
-    elif noose == 9:
-        print(Fore.LIGHTCYAN_EX + '    =========')
-        print(Fore.LIGHTCYAN_EX + '      |/   |')
-        print(Fore.LIGHTCYAN_EX + '      |    O')
-        print(Fore.LIGHTCYAN_EX + '      |   \|/')
-        print(Fore.LIGHTCYAN_EX + '      |    |')
-        print(Fore.LIGHTCYAN_EX + '      |')
-        print(Fore.LIGHTCYAN_EX + '      |')
-        print(Fore.LIGHTCYAN_EX + '  =========')
-    elif noose == 10:
-        print(Fore.LIGHTCYAN_EX + '    =========')
-        print(Fore.LIGHTCYAN_EX + '      |/   |')
-        print(Fore.LIGHTCYAN_EX + '      |    O')
-        print(Fore.LIGHTCYAN_EX + '      |   \|/')
-        print(Fore.LIGHTCYAN_EX + '      |    |')
-        print(Fore.LIGHTCYAN_EX + '      |   / ')
-        print(Fore.LIGHTCYAN_EX + '      |')
-        print(Fore.LIGHTCYAN_EX + '  ==========')
-    elif noose == 11:
-        print(Fore.LIGHTRED_EX + '   =========')
-        print(Fore.LIGHTRED_EX + '      |/   |')
-        print(Fore.LIGHTRED_EX + '      |    O')
-        print(Fore.LIGHTRED_EX + '      |   \|/')
-        print(Fore.LIGHTRED_EX + '      |    |')
-        print(Fore.LIGHTRED_EX + '      |   / \ ')
-        print(Fore.LIGHTRED_EX + '      |')
-        print(Fore.LIGHTRED_EX + '  =========')
+    noose1 = '  =========='
+    noose2 = '    \n      |/\n      |\n      |\n      |\n      |\n      |\n      |\n  =========='
+    noose3 = '    ==========\n      |/\n      |\n      |\n      |\n      |\n      |\n      |\n  =========='
+    noose4 = '    ==========\n      |/   |\n      |\n      |\n      |\n      |\n      |\n      |\n  =========='
+    noose5 = '    ==========\n      |/   |\n      |    O\n      |\n      |\n      |\n      |\n      |\n  =========='
+    noose6 = '    ==========\n      |/   |\n      |    O\n      |    |\n      |\n      |\n      |\n      |\n  =========='
+    noose7 = '    ==========\n      |/   |\n      |    O\n      |   \|\n      |\n      |\n      |\n      |\n  =========='
+    noose8 = '    ==========\n      |/   |\n      |    O\n      |   \|/\n      |\n      |\n      |\n      |\n  =========='
+    noose9 = '    ==========\n      |/   |\n      |    O\n      |   \|/\n      |    |\n      |\n      |\n      |\n  =========='
+    noose10 = '    ==========\n      |/   |\n      |    O\n      |   \|/\n      |    |\n      |   / \n      |\n      |\n  =========='
+    noose11 = '    ==========\n      |/   |\n      |    O\n      |   \|/\n      |    |\n      |   / \\\n      |\n      |\n  =========='
+
+    noose_list = [noose1, noose2, noose3, noose4, noose5, noose6, noose7, noose8, noose9, noose10, noose11]
+    noose_key = [x for x in range(1, 12)]
+    noose_dict = dict(zip(noose_key, noose_list))
+
+    if noose != 11:
+        print(Fore.LIGHTGREEN_EX + noose_dict[noose])
+    else:
+        print(Fore.LIGHTRED_EX + noose_dict[noose])
         x = ''.join(word_copy)
         print(Fore.RED + '\nYOU\'RE DEAD!!!', Fore.LIGHTWHITE_EX + x.upper(), Fore.RED + 'was the word.\n')
         wikipedia_request(x, gl, noose)
 
 
-def wikipedia_request(*args):
+def wikipedia_request(answer, gl, noose):
     """
     looks up wikipedia information for the word
 
-    :param args: answer, gl, noose
-    :return:
+    :param answer:
+    :param gl:
+    :param noose:
     """
-    answer, gl, noose = args
     answer = ''.join(answer)
     try:
         print(Fore.LIGHTYELLOW_EX + 'Wikipedia Summary:')
@@ -237,14 +165,16 @@ def wikipedia_request(*args):
         twinword_request(answer, gl, noose)
 
 
-def twinword_request(*args):
+def twinword_request(display, gl, noose):
     """
     looks up definitions of word
 
+    :param display:
+    :param gl:
+    :param noose:
     :param args: display, gl, noose
     :return:
     """
-    display, gl, noose = args
     url = "https://twinword-word-graph-dictionary.p.rapidapi.com/definition/"
     querystring = {"entry": display}
     headers = {
@@ -263,47 +193,49 @@ def twinword_request(*args):
         datamuse_request(display, gl, noose)
 
 
-def datamuse_request(*args):
+def datamuse_request(display, gl, noose):
     """
     backup if twinword request fails. finally command to move on should this request also fail
 
-    :param args: display, gl, noose
-    :return: display, gl, noose
+    :param display:
+    :param gl:
+    :param noose:
     """
-    response = requests.get(f"http://api.datamuse.com//words?sp={args[0]}&md=d")
+    response = requests.get(f"http://api.datamuse.com//words?sp={display}&md=d")
     x = (response.json())
     try:
-        for i in x[0]['defs']:
+        for i in x[display]['defs']:
             print(i)
-            check_word_frequency(args[0], args[1], args[2])
+            check_word_frequency(display, gl, noose)
     except (IndexError, KeyError):
         pass  # print('None found!')
     finally:
-        check_word_frequency(args[0], args[1], args[2])
+        check_word_frequency(display, gl, noose)
 
 
-def check_word_frequency(*args):
+def check_word_frequency(display, gl, noose):
     """
     checks if the word is in a list of the top 5000 most frequently used English words. Shows a message if it is
 
-    :param args: word, gl, noose
-    :return: word, gl, noose
+    :param display:
+    :param gl:
+    :param noose:
     """
     with open('word_freq_count.csv', 'r') as file1:  # Top 5,000 entries
         reader1 = csv.reader(file1)
         for row in reader1:
-            if args[0].lower() in row:
+            if display.lower() in row:
                 if int(row[1]) < 5052:
                     print()
-                    print(Fore.LIGHTWHITE_EX + args[0].upper(), 'is', Fore.LIGHTWHITE_EX + row[1], 'of the top '
+                    print(Fore.LIGHTWHITE_EX + display.upper(), 'is', Fore.LIGHTWHITE_EX + row[1], 'of the top '
                                                                                                    '5000 most used '
                                                                                                    'English '
                                                                                                    'words!')
     file1.close()
-    scores(args[0], args[1], args[2])
+    scores(display, gl, noose)
 
 
-def scores(*args):
+def scores(display, gl, noose):
     """
     Using scrabble letter points and a sample of 40,000 English words:
     > word score
@@ -312,8 +244,9 @@ def scores(*args):
 
     noose is simply being passed between functions to get to the end. Must be a better way!
 
-    :param args: word, guessed_letters, noose
-    :return: word, letter_score, scrabble_score, guessed_letters, used_letter_score, noose
+    :param noose:
+    :param gl:
+    :param display:
     """
 
     #  dict values are scrabble scores and English Letter Frequency (based on a sample of 40,000 words) respectively.
@@ -350,41 +283,45 @@ def scores(*args):
     used_letter_score = 0
 
     # to handle ui if not isalpha
-    for letter in args[0].upper():
+    for letter in display.upper():
         with suppress(KeyError):
             scrabble_score += letter_score[letter][0]
             letter_frequency_score += letter_score[letter][1]
-    for letter in args[1]:
+    for letter in gl:
         with suppress(KeyError):
             used_letter_score += letter_score[letter.upper()][0]
 
-    if args[2] > 10:
+    if noose > 10:
         print(Fore.LIGHTWHITE_EX + '\nFinal Score:', Fore.LIGHTRED_EX + 'You died!')
     else:
-        final_score = used_letter_score - scrabble_score - len(args[0])
+        final_score = used_letter_score - scrabble_score - len(display)
         print(Fore.LIGHTWHITE_EX + '\nFinal Score:', Fore.LIGHTGREEN_EX + str(final_score))
         print('Less is better! A negative number is great!')
 
     choice = input('\nWant to see some tables? y/N: ')
     if choice == 'y':
-        tables(args[0], letter_score, scrabble_score, args[1], used_letter_score)
+        tables(display, letter_score, scrabble_score, gl, used_letter_score)
     else:
         hangman()
 
 
-def tables(*args):
+def tables(display, letter_score, scrabble_score, gl, used_letter_score):
     """
     Creates 3 matplotlib tables depicting:
     > frequency of each unique letter appearing in the word within a sample of 40,000 English words
     > number of times each letter in the word appears in the word. Scrabble word value in the table header
     > letters guessed, the scrabble point value for each, and sum points of all letters guessed
 
-    :param args: word, letter_score, scrabble_score, guessed_letters, used_letter_score
-
+    :param used_letter_score:
+    :param gl:
+    :param scrabble_score:
+    :param letter_score:
+    :param display:
     """
 
-    scrabble_letter_score = [args[1][letter.upper()][0] for letter in args[0]]  # letter values of every letter in word
-    word_list = list(args[0])
+    scrabble_letter_score = [letter_score[letter.upper()][0] for letter in
+                             display]  # letter values of every letter in word
+    word_list = list(display)
     letter_count_list = [word_list.count(letter) for letter in word_list]  # frequency of each unique letter in word
     product = np.multiply(scrabble_letter_score, letter_count_list)  # totals value for every letter (value * frequency)
     d1 = {word_list[i]: int(product[i]) for i in range(len(word_list))}  # (k) letter v(total value) duplicates excluded
@@ -392,12 +329,12 @@ def tables(*args):
     # table 1. letter count
     plt.figure(figsize=(70, 10))
     plt.subplot(1, 4, 1)
-    letter_count = [(args[0].count(letter)) for letter in set(args[0])]  # using set counts but hides duplicates!
-    dictionary = dict(zip(set(args[0]), letter_count))
+    letter_count = [(display.count(letter)) for letter in set(display)]  # using set counts but hides duplicates!
+    dictionary = dict(zip(set(display), letter_count))
     rect = plt.bar([k for k, v in dictionary.items()], [v for k, v in dictionary.items()])
     plt.xlabel(f'Letter')
     plt.ylabel("Letter Count")
-    plt.title(f'Word Value ({args[0]}) = {args[2]}')
+    plt.title(f'Word Value ({display}) = {scrabble_score}')
     plt.yticks([v for k, v in dictionary.items()])
 
     #  table 2. score per letter
@@ -429,19 +366,19 @@ def tables(*args):
 
     # table 3. frequency table
     plt.subplot(1, 4, 3)
-    plt.bar([x for x in args[0]], [args[1][letter][1] for letter in args[0].upper()], color="red")
+    plt.bar([x for x in display], [letter_score[letter][1] for letter in display.upper()], color="red")
     plt.xlabel(f'Letter')
     plt.title('Letter Frequency')  # English Letter Frequency (based on a sample of 40,000 words
-    plt.yticks([args[1][letter.upper()][1] for letter in args[0]])
+    plt.yticks([letter_score[letter.upper()][1] for letter in display])
 
     # table 4. guess count table
-    glstring = ''.join(args[3])
+    glstring = ''.join(gl)
     plt.subplot(1, 4, 4)
-    plt.bar([x for x in glstring], [args[1][letter][0] for letter in glstring.upper()], color="green")
+    plt.bar([x for x in glstring], [letter_score[letter][0] for letter in glstring.upper()], color="green")
     plt.xlabel(f'Letter')
     plt.ylabel("Scrabble Point")
-    plt.title(f'Guess Value = {args[4]}')
-    plt.yticks([args[1][letter.upper()][0] for letter in glstring])
+    plt.title(f'Guess Value = {used_letter_score}')
+    plt.yticks([letter_score[letter.upper()][0] for letter in glstring])
 
     plt.show()
     hangman()
